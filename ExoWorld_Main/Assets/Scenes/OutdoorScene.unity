@@ -1443,11 +1443,11 @@ MonoBehaviour:
     m_Bits: 256
   walkPoint: {x: 0, y: 0, z: 0}
   timeBetweenAttacks: 1
-  sightRange: 20
-  attackRange: 12
+  sightRange: 32
+  attackRange: 20
   playerInSightRange: 0
   playerInAttackRange: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 795098525}
   walkPointRange: 10
   health: 100
 --- !u!195 &623535806
@@ -1460,7 +1460,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -7697,7 +7697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1212735803}
   m_Layer: 0
-  m_Name: AttackPointt
+  m_Name: AttackPoint-p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8145,7 +8145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502881391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 862d1ab2a4d98474a87f2c15ae696e7f, type: 3}
   m_Name: 
@@ -8156,6 +8156,37 @@ MonoBehaviour:
   fireRate: 15
   fpsCam: {fileID: 963194227}
   muzzleFlash: {fileID: 957101443}
+--- !u!114 &1502881394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502881391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b6c3bbfa6c5064c8a7ba4fb03c4910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 795098525}
+  shootForce: 60
+  upwardForce: 0
+  timeBetweenShooting: 0.25
+  spread: 0
+  reloadTime: 0
+  timeBetweenShots: 0
+  magazineSize: 100
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  fpsCam: {fileID: 963194227}
+  attackPoint: {fileID: 1212735803}
+  ammunitionDisplay: {fileID: 0}
+  allowInvoke: 1
+  playerRb: {fileID: 2122806185}
+  recoilForce: 0
+  muzzleFlash: {fileID: 957101443}
+  impactForce: 30
+  damage: 10
 --- !u!1 &1539344082
 GameObject:
   m_ObjectHideFlags: 0
