@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4693361, g: 0.57099557, b: 0.5466867, a: 1}
+  m_IndirectSpecularColor: {r: 0.4243413, g: 0.5594984, b: 0.540633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28102,11 +28102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: walkSpeed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: techSlider
@@ -28115,6 +28115,10 @@ PrefabInstance:
     - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: sprintSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
+      propertyPath: acceleration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827187, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: oxygenSlider
@@ -28130,7 +28134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827189, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: wallRunJumpForce
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6226669479469827198, guid: 16b39d9178df96a4f9eb3a29ea8fe9a8, type: 3}
       propertyPath: m_Name
