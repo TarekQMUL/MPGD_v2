@@ -1,0 +1,73 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class MutantScript : MonoBehaviour
+{
+    [SerializeField] NavMeshAgent bot;
+    GameObject[] target;
+    int rndIndex;
+    Vector3 nextTarget;
+    [SerializeField] Transform playerTarget;
+    public float lookRadius = 10f;
+    bool patrolMode;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerTarget = PlayerManager.instance.player.transform;
+
+        target = GameObject.FindGameObjectsWithTag("PatrolPoint");
+        GotoNextPoint();
+        rndIndex = UnityEngine.Random.Range(0, target.Length);
+        bot.SetDestination(target[rndIndex].transform.position);
+    }
+
+    private void GotoNextPoint()
+    {
+        bot.SetDestination(target[rndIndex].transform.position);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (target != null && patrolMode)
+        {
+            rndIndex = UnityEngine.Random.Range(0, target.Length);
+            nextTarget = target[rndIndex].transform.position;
+            if (!bot.pathPending)
+            {
+                if (bot.remainingDistance <= bot.stoppingDistance)
+                {
+                    if (!bot.hasPath || bot.velocity.sqrMagnitude == 0f)
+                    {
+                        bot.SetDestination(nextTarget);
+                    }
+                }
+            }
+        }
+        float distance = Vector3.Distance(playerTarget.position, transform.position);
+        if (distance <= lookRadius)
+        {
+            patrolMode = false;
+            // Move towards the player
+            bot.SetDestination(playerTarget.position);
+        }
+        else
+            patrolMode = true;
+
+
+        UpdateAnimator();
+
+    }
+
+    private void UpdateAnimator()
+    {
+        Vector3 playerVelocity = GetComponent<NavMeshAgent>().velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(playerVelocity);
+        GetComponent<Animator>().SetFloat("mutantmove", localVelocity.z);
+    }
+}
+
