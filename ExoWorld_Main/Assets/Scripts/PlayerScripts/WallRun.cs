@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// used plais tutorial to create this https://www.youtube.com/channel/UCW7dxGTnyzJ3KYWzLbGHhxA
+
 public class WallRun : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private Transform orientation;
-
-    [Header("Detection")]
-    [SerializeField] private float wallDistance = .5f;
-    [SerializeField] private float minimumJumpHeight = 1.5f;
-
-    [Header("Wall Running")]
-    [SerializeField] private float wallRunGravity;
-    [SerializeField] private float wallRunJumpForce;
 
     [Header("Camera")]
     [SerializeField] private Camera cam;
@@ -23,7 +17,13 @@ public class WallRun : MonoBehaviour
     [SerializeField] private float camTilt;
     [SerializeField] private float camTiltTime;
 
-    public float tilt { get; private set; }
+    [Header("Detection")]
+    [SerializeField] private float wallDistance = .5f;
+    [SerializeField] private float minimumJumpHeight = 1.5f;
+
+    [Header("Wall Running")]
+    [SerializeField] private float wallRunGravity;
+    [SerializeField] private float wallRunJumpForce;
 
     private bool wallLeft = false;
     private bool wallRight = false;
@@ -33,7 +33,9 @@ public class WallRun : MonoBehaviour
 
     private Rigidbody rb;
 
-    bool CanWallRun()
+    public float tilt { get; private set; }
+
+    bool CheckCanWallRun()
     {
         return !Physics.Raycast(transform.position, Vector3.down, minimumJumpHeight);
     }
@@ -43,7 +45,7 @@ public class WallRun : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void CheckWall()
+    void CheckWall() // check if player touching a wall and which side
     {
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallDistance);
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallDistance);
@@ -53,7 +55,7 @@ public class WallRun : MonoBehaviour
     {
         CheckWall();
 
-        if (CanWallRun())
+        if (CheckCanWallRun())
         {
             if (wallLeft)
             {

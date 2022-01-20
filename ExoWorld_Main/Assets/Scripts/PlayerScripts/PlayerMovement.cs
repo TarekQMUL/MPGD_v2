@@ -3,41 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// used the tutorial from plai to make the movement with wallrunning : https://www.youtube.com/channel/UCW7dxGTnyzJ3KYWzLbGHhxA
+
 public class PlayerMovement : MonoBehaviour
 {
-    float playerHeight = 2f;
-
     [SerializeField] Transform orientation;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 6f;
-    [SerializeField] float airMultiplier = 0.4f;
-    float movementMultiplier = 10f;
+    [SerializeField] float airBoost = 0.4f;
+    float movementBoost = 10f;
 
-    [Header("Sprinting")]
-    [SerializeField] float walkSpeed = 4f;
-    [SerializeField] float sprintSpeed = 6f;
-    [SerializeField] float acceleration = 10f;
-
-    [Header("Jumping")]
+    [Header("Jump")]
     public float jumpForce = 5f;
 
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
 
-    [Header("Drag")]
-    [SerializeField] float groundDrag = 6f;
-    [SerializeField] float airDrag = 2f;
+    [Header("Sprint")]
+    [SerializeField] float walkSpeed = 4f;
+    [SerializeField] float sprintSpeed = 6f;
+    [SerializeField] float acceleration = 10f;
 
-    float horizontalMovement;
-    float verticalMovement;
-
-    [Header("Ground Detection")]
+    [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float groundDistance = 0.2f;
     public bool isGrounded { get; private set; }
+
+    [Header("Drag")]
+    [SerializeField] float groundDrag = 6f;
+    [SerializeField] float airDrag = 2f;
+
+    float playerHeight = 2f;
+
+    float horizontalMovement;
+    float verticalMovement;
 
     Vector3 moveDirection; // for slope
     Vector3 slopeMoveDirection; // slope move direction
@@ -149,15 +151,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded && !OnSlope())
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);
+            rb.AddForce(moveDirection.normalized * moveSpeed * movementBoost, ForceMode.Acceleration);
         }
         else if (isGrounded && OnSlope())
         {
-            rb.AddForce(slopeMoveDirection.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);
+            rb.AddForce(slopeMoveDirection.normalized * moveSpeed * movementBoost, ForceMode.Acceleration);
         }
         else if (!isGrounded)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
+            rb.AddForce(moveDirection.normalized * moveSpeed * movementBoost * airBoost, ForceMode.Acceleration);
         }
     }
 }

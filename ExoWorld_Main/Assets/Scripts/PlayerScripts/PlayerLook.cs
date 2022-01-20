@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// used the tutorial from plai to make the movement with wallrunning : https://www.youtube.com/channel/UCW7dxGTnyzJ3KYWzLbGHhxA
+
 public class PlayerLook : MonoBehaviour
 {
     [Header("References")]
@@ -16,10 +18,10 @@ public class PlayerLook : MonoBehaviour
     float mouseX;
     float mouseY;
 
-    float multiplier = 0.01f;
-
     float xRotation;
     float yRotation;
+
+    float multiplier = 0.01f;
 
     private void Start()
     {
