@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,6 +46,14 @@ public class PlayerMovement : MonoBehaviour
 
     RaycastHit slopeHit;
 
+    public float oxygenLevel = 1f;
+    public int spaceshipHealth = 0;
+
+    public float oxygenDepletionRate;
+
+    public Slider oxygenSlider;
+    public Slider techSlider;
+
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.5f))
@@ -81,6 +90,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal); //  projects vector 3 on a normal perpendicular to surface
+
+        oxygenLevel -= oxygenDepletionRate;
+        if (oxygenLevel < 0f)
+        {
+            oxygenLevel = 0f;
+        }        oxygenSlider.value = oxygenLevel;
+        techSlider.value = spaceshipHealth;
     }
 
     void MyInput()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Enemy : MonoBehaviour
 
     public float health = 50f;
 
+    public Slider enemyHealthBar;
+
     private void Update()
     {
         //Check for sight and attack range
@@ -34,6 +37,8 @@ public class Enemy : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+
+        enemyHealthBar.value = health / 50f;
     }
 
     private void Patroling()
