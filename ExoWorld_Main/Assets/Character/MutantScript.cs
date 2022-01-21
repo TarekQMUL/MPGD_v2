@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +13,9 @@ public class MutantScript : MonoBehaviour
     public float lookRadius = 10f;
     bool patrolMode;
 
+    public float health = 50f;
+
+   // public Slider enemyHealthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class MutantScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //enemyHealthBar.value = health / 50f;
         if (target != null && patrolMode)
         {
             rndIndex = UnityEngine.Random.Range(0, target.Length);
@@ -68,6 +72,24 @@ public class MutantScript : MonoBehaviour
         Vector3 playerVelocity = GetComponent<NavMeshAgent>().velocity;
         Vector3 localVelocity = transform.InverseTransformDirection(playerVelocity);
         GetComponent<Animator>().SetFloat("mutantmove", localVelocity.z);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }
 

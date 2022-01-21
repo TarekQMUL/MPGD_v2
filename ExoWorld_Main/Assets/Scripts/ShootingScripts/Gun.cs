@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-           Enemy enemy = hit.transform.GetComponent<Enemy>();
+           MutantScript enemy = hit.transform.GetComponent<MutantScript>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
