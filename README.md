@@ -9,7 +9,9 @@ W: Forward
 A: Left
 S: Backwards
 D: Right
+
 Left Shift: Sprint
+
 Mouse to move camera around.
 
 WallRunning:
