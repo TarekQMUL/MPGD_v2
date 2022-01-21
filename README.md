@@ -9,6 +9,9 @@ W: Forward
 A: Left
 S: Backwards
 D: Right
+
+Left Shift: Sprint
+
 Mouse to move camera around.
 
 WallRunning:
@@ -44,3 +47,9 @@ https://assetstore.unity.com/packages/3d/props/guns/sample-low-poly-guns-pack-20
 
 Skybox Series Free:
 https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
+
+Enemy asset Mutant: GIVE SPECIFIC LINK.
+
+https://www.mixamo.com/#/?page=1&type=Character
+
+
