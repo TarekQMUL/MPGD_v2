@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpaceshipScene/SpaceshipInteriorScene.unity
     guid: 3b7012f848364d441aab0efe4ebb56c6
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen/GameOverScreen.unity
+    guid: 07cb69a185b00f649aaecd755dcde71b
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen/WinScreen.unity
+    guid: beba6197e29d8114396a83b9c8386c79
   m_configObjects: {}

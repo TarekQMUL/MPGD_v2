@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 // used the tutorial from plai to make the movement with wallrunning : https://www.youtube.com/channel/UCW7dxGTnyzJ3KYWzLbGHhxA
 
@@ -97,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         if (oxygenLevel < 0f)
         {
             oxygenLevel = 0f;
+            SceneManager.LoadScene("GameOverScreen");
         }        oxygenSlider.value = oxygenLevel;
         techSlider.value = spaceshipHealth;
     }

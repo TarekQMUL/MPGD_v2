@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6226669479469827187}
   - component: {fileID: 6226669479469827186}
   - component: {fileID: 6226669479469827189}
+  - component: {fileID: 5755588785507474442}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -195,20 +196,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 6226669479586622628}
   moveSpeed: 10
-  airMultiplier: 0.4
-  walkSpeed: 4
-  sprintSpeed: 6
-  acceleration: 50
+  airBoost: 0.4
   jumpForce: 15
   jumpKey: 32
   sprintKey: 304
-  groundDrag: 6
-  airDrag: 3
+  walkSpeed: 4
+  sprintSpeed: 6
+  acceleration: 50
   groundCheck: {fileID: 6226669480529122921}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   groundDistance: 0.1
+  groundDrag: 6
+  airDrag: 3
+  oxygenLevel: 1
+  spaceshipHealth: 0
+  oxygenDepletionRate: 0
+  oxygenSlider: {fileID: 0}
+  techSlider: {fileID: 0}
 --- !u!114 &6226669479469827186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,16 +245,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 6226669479586622628}
-  wallDistance: 1
-  minimumJumpHeight: 1.5
-  wallRunGravity: 0.4
-  wallRunJumpForce: 10
   cam: {fileID: 0}
   fov: 70
   wallRunfov: 80
   wallRunfovTime: 10
   camTilt: 10
   camTiltTime: 10
+  wallDistance: 1
+  minimumJumpHeight: 1.5
+  wallRunGravity: 0.4
+  wallRunJumpForce: 10
+--- !u!114 &5755588785507474442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226669479469827198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7094b6f613255fb4cbb1d9b166e11af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  rayDistance: 13.72
+  distance: 1.85
+  target: {fileID: 0}
 --- !u!1 &6226669479586622629
 GameObject:
   m_ObjectHideFlags: 0
