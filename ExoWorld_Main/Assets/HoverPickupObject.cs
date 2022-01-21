@@ -12,6 +12,8 @@ public class HoverPickupObject : MonoBehaviour
 
     CursorLockMode cursorLock;
 
+    public AudioSource pickupsfx;
+
     void Start()
     {
         //cursorLock = CursorLockMode.Locked;
@@ -39,6 +41,7 @@ public class HoverPickupObject : MonoBehaviour
         {
             if (hit.collider.tag == "Pickup")
             {
+                pickupsfx.Play();
                 if (hit.transform.GetComponent<PickupBehaviour>().pickupID == 0)
                 {
                     transform.GetComponentInParent<PlayerMovement>().oxygenLevel += 0.2f;

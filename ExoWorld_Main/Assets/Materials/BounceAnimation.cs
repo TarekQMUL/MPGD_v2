@@ -15,7 +15,7 @@ public class BounceAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startingHeight = transform.localPosition.y;
+        startingHeight = transform.localPosition.y + 1f;
         timeOffset = Random.value * Mathf.PI * 2;
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MutantScript : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class MutantScript : MonoBehaviour
    // public Slider enemyHealthBar;
 
     // Start is called before the first frame update
+
+
+    public Slider healthbar;
     void Start()
     {
         playerTarget = PlayerManager.instance.player.transform;
@@ -64,7 +68,7 @@ public class MutantScript : MonoBehaviour
 
 
         UpdateAnimator();
-
+        healthbar.value = health/50f;
     }
 
     private void UpdateAnimator()

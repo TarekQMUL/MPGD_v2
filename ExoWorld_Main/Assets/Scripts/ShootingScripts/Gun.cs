@@ -13,8 +13,18 @@ public class Gun : MonoBehaviour
 
     private float nextTimeToFire = 0f;
 
-    // Update is called once per frame
-    void Update()
+    public AudioSource gunShotSound;
+    public AudioSource enemyHit;
+
+    private void Awake()
+    {
+        gunShotSound = GetComponent<AudioSource>();
+
+    }
+
+
+        // Update is called once per frame
+        void Update()
     {
         if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
@@ -27,6 +37,8 @@ public class Gun : MonoBehaviour
     void Shoot ()
     {
         muzzleFlash.Play();
+        gunShotSound.Play();
+        enemyHit.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) 
         {

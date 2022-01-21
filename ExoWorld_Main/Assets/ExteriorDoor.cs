@@ -19,6 +19,6 @@ public class ExteriorDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("OutdoorScene");
+        SceneManager.LoadScene("SpaceshipInteriorScene");
     }
 }
