@@ -34,11 +34,14 @@ public class projectileGun : MonoBehaviour
     public float impactForce = 30f;
     public float damage = 10f;
 
+    public AudioSource gunShotSound;
+
     private void Awake()
     {
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        gunShotSound = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -74,6 +77,8 @@ public class projectileGun : MonoBehaviour
     {
         readyToShoot = false;
         muzzleFlash.Play();
+        gunShotSound.Play();
+
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
         RaycastHit hit;
