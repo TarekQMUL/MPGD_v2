@@ -29,13 +29,18 @@ References to assets:
 
 LowPolyBrickHouses:
 https://assetstore.unity.com/packages/3d/props/exterior/low-poly-brick-houses-131899
+
 FantasyEnvronments:
 https://assetstore.unity.com/packages/3d/environments/fantasy-landscape-103573
+
 Terrain Sample Asset Pack:
 https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808
+
 LowPoly Water:
 https://assetstore.unity.com/packages/tools/particles-effects/lowpoly-water-107563
+
 Low Poly Guns Pack:
 https://assetstore.unity.com/packages/3d/props/guns/sample-low-poly-guns-pack-207957
+
 Skybox Series Free:
 https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
